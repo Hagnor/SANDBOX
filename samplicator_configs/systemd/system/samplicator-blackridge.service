@@ -1,0 +1,14 @@
+#
+# /etc/systemd/system/samplicator-blackridge.service
+#
+
+[Unit]
+Description="Samplicator BlackRidge"
+After=network.target
+
+[Service]
+Type=forking
+ExecStart=/usr/local/bin/samplicate -S -c /etc/samplicator/blackridge.conf -s $SAMP_BLACKRIDGE_LISTEN_IP -p $SAMP_BLACKRIDGE_LISTEN_PORT -d 0 -f
+
+[Install]
+WantedBy=multi-user.target

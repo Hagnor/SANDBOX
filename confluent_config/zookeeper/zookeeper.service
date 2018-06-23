@@ -1,0 +1,21 @@
+[Unit]
+Description=Confluent ZooKeeper
+After=network.target network-online.target remote-fs.target
+
+[Service]
+Type=forking
+# User=zookeeper
+# Group=zookeeper
+User=root
+Group=root
+Environment="KAFKA_JMX_OPTS=-Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=10020 -Dcom.sun.management.jmxremote.local.only=false -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false"
+Environment="LOG_DIR=/var/log/zookeeper"
+Environment="KAFKA_HEAP_OPTS=-Xms2g -Xmx2g"
+# Uncomment the following line to enable authentication for the zookeeper
+# Environment="KAFKA_OPTS=-Djava.security.auth.login.config=/etc/kafka/zookeeper_server_jaas.conf -Djava.security.krb5.conf=/etc/krb5.conf"
+ExecStart=/usr/bin/zookeeper-server-start -daemon /etc/kafka/zookeeper.properties
+ExecStop=/usr/bin/zookeeper-server-stop
+SuccessExitStatus=143
+
+[Install]
+WantedBy=multi-user.target

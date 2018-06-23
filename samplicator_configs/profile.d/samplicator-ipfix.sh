@@ -1,0 +1,3 @@
+# Samplicator - IPFIX
+export SAMP_IPFIX_LISTEN_IP=0.0.0.0
+export SAMP_IPFIX_LISTEN_PORT=4739

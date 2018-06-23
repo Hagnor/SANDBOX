@@ -1,0 +1,5 @@
+[percona]
+name = CentOS $releasever - Percona
+baseurl=http://repo.percona.com/centos/7/os/x86_64/
+enabled = 1
+gpgcheck = 0

@@ -1,0 +1,5 @@
+[influxdata]
+name = InfluxData Repository - RHEL \$releasever
+baseurl = https://repos.influxdata.com/rhel/\$releasever/\$basearch/stable
+enabled = 1
+gpgcheck = 0

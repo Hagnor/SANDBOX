@@ -1,0 +1,26 @@
+[Unit]
+Description=Confluent Kafka Broker
+#After=network.target network-online.target remote-fs.target zookeeper.service
+After=network.target network-online.target remote-fs.target
+
+[Service]
+#LimitMEMLOCK=infinity
+#LimitNPROC=4096
+LimitNOFILE=65536
+
+Type=forking
+# User=kafka
+# Group=kafka
+User=root
+Group=root
+Environment="KAFKA_JMX_OPTS=-Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=10030 -Dcom.sun.management.jmxremote.local.only=false -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false"
+Environment="LOG_DIR=/var/log/kafka"
+Environment="KAFKA_HEAP_OPTS=-Xms4g -Xmx4g"
+# Uncomment the following line to enable authentication for the broker
+# Environment="KAFKA_OPTS=-Djava.security.auth.login.config=/etc/kafka/kafka-jaas.conf -Djava.security.krb5.conf=/etc/krb5.conf"
+ExecStart=/usr/bin/kafka-server-start -daemon /etc/kafka/server.properties
+ExecStop=/usr/bin/kafka-server-stop
+SuccessExitStatus=143
+
+[Install]
+WantedBy=multi-user.target
