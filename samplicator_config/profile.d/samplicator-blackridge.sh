@@ -1,0 +1,3 @@
+# Samplicator - BlackRidge
+export SAMP_BLACKRIDGE_LISTEN_IP=0.0.0.0
+export SAMP_BLACKRIDGE_LISTEN_PORT=51401

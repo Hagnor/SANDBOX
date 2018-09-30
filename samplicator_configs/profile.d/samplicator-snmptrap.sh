@@ -1,3 +1,0 @@
-# Samplicator - SNMP Trap
-export SAMP_SNMPTRAP_LISTEN_IP=0.0.0.0
-export SAMP_SNMPTRAP_LISTEN_PORT=162

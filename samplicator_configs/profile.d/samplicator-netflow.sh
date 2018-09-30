@@ -1,3 +1,0 @@
-# Samplicator - Netflow
-export SAMP_NETFLOW_LISTEN_IP=0.0.0.0
-export SAMP_NETFLOW_LISTEN_PORT=2055
