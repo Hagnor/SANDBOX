@@ -1,0 +1,15 @@
+metricbeat.config.modules:
+  # Glob pattern for configuration loading
+  path: ${path.config}/modules.d/*.yml
+
+  # Set to true to enable config reloading
+  reload.enabled: false
+
+setup.template.settings:
+  index.number_of_shards: 1
+  index.codec: best_compression
+  #_source.enabled: false
+
+output.elasticsearch:
+  # Array of hosts to connect to.
+  hosts: ["192.168.1.245:9200"]

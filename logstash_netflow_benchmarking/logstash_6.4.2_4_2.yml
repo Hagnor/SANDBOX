@@ -1,0 +1,77 @@
+version: '2'
+services:
+  logstash-oss-1:
+    cpuset: '0,4'
+    image: docker.elastic.co/logstash/logstash:6.4.2
+    container_name: logstash-oss-1
+    restart: 'no'
+    volumes:
+      - /home/rob/conf.d:/usr/share/logstash/config/conf.d
+    network_mode: host
+    environment:
+      LS_JAVA_OPTS: '-Xms1g -Xmx1g'
+      XPACK_MONITORING_ENABLED: "false"
+      HTTP_HOST: 0.0.0.0
+      HTTP_PORT: 9601
+      PATH_CONFIG: "/usr/share/logstash/config/conf.d/*.conf"
+      PIPELINE_WORKERS: 1
+      UDP_HOST: 0.0.0.0
+      UDP_PORT: 9991
+      UDP_WORKERS: 2
+
+  logstash-oss-2:
+    cpuset: '1,5'
+    image: docker.elastic.co/logstash/logstash:6.4.2
+    container_name: logstash-oss-2
+    restart: 'no'
+    volumes:
+      - /home/rob/conf.d:/usr/share/logstash/config/conf.d
+    network_mode: host
+    environment:
+      LS_JAVA_OPTS: '-Xms1g -Xmx1g'
+      XPACK_MONITORING_ENABLED: "false"
+      HTTP_HOST: 0.0.0.0
+      HTTP_PORT: 9602
+      PATH_CONFIG: "/usr/share/logstash/config/conf.d/*.conf"
+      PIPELINE_WORKERS: 1
+      UDP_HOST: 0.0.0.0
+      UDP_PORT: 9992
+      UDP_WORKERS: 2
+
+  logstash-oss-3:
+    cpuset: '2,6'
+    image: docker.elastic.co/logstash/logstash:6.4.2
+    container_name: logstash-oss-3
+    restart: 'no'
+    volumes:
+      - /home/rob/conf.d:/usr/share/logstash/config/conf.d
+    network_mode: host
+    environment:
+      LS_JAVA_OPTS: '-Xms1g -Xmx1g'
+      XPACK_MONITORING_ENABLED: "false"
+      HTTP_HOST: 0.0.0.0
+      HTTP_PORT: 9603
+      PATH_CONFIG: "/usr/share/logstash/config/conf.d/*.conf"
+      PIPELINE_WORKERS: 1
+      UDP_HOST: 0.0.0.0
+      UDP_PORT: 9993
+      UDP_WORKERS: 2
+
+  logstash-oss-4:
+    cpuset: '3,7'
+    image: docker.elastic.co/logstash/logstash:6.4.2
+    container_name: logstash-oss-4
+    restart: 'no'
+    volumes:
+      - /home/rob/conf.d:/usr/share/logstash/config/conf.d
+    network_mode: host
+    environment:
+      LS_JAVA_OPTS: '-Xms1g -Xmx1g'
+      XPACK_MONITORING_ENABLED: "false"
+      HTTP_HOST: 0.0.0.0
+      HTTP_PORT: 9604
+      PATH_CONFIG: "/usr/share/logstash/config/conf.d/*.conf"
+      PIPELINE_WORKERS: 1
+      UDP_HOST: 0.0.0.0
+      UDP_PORT: 9994
+      UDP_WORKERS: 2

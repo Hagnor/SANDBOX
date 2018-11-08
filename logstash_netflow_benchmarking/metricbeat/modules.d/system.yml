@@ -1,0 +1,8 @@
+- module: system
+  period: 5s
+  metricsets:
+    - cpu
+    - load
+    - core
+  cpu.metrics: ["percentages","normalized_percentages"]
+
